@@ -6,7 +6,7 @@ on:
 
   pull_request:
     branches: [main]
-      
+
   workflow_dispatch:
 
 jobs:
@@ -39,6 +39,7 @@ jobs:
 
   approve-production:
     needs: test-staging
+    runs-on: ubuntu-latest
     environment: production-approval
     steps:
       - name: Awaiting approval

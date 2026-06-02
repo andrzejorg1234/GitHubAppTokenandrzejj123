@@ -41,11 +41,11 @@ jobs:
     needs: test-staging
     runs-on: ubuntu-latest
     environment: production-approval
+    timeout-minutes: 60
     steps:
       - name: Awaiting approval
         run: echo "Waiting for approval to deploy to production"
-        wait-for-approval:
-          timeout-minutes: 60
+    
 
   deploy-production:
     needs: approve-production

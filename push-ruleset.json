@@ -1,0 +1,26 @@
+{
+  "name": "block-unsafe-files",
+  "target": "push",
+  "enforcement": "active",
+  "bypass_actors": [],
+  "conditions": {
+    "ref_name": {
+      "include": ["~ALL"],
+      "exclude": []
+    }
+  },
+  "rules": [
+    {
+      "type": "file_extension_restriction",
+      "parameters": {
+        "restricted_file_extensions": ["*.exe", "*.dll", "*.zip", "*.tar.gz"]
+      }
+    },
+    {
+      "type": "max_file_size",
+      "parameters": {
+        "max_file_size": 10
+      }
+    }
+  ]
+}

@@ -44,12 +44,16 @@ jobs:
     steps:
       - name: Awaiting approval
         run: echo "Waiting for approval to deploy to production"
+        wait-for-approval:
+          timeout-minutes: 60
 
   deploy-production:
     needs: approve-production
 
     runs-on: ubuntu-latest
-    environment: production
+    environment: 
+      name: production
+      url: https://production.example.com
     steps:
       - name: Deploy to production
         run: echo "Deployed to production"
